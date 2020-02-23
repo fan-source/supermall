@@ -27,4 +27,12 @@ export default {
 </script>
 
 <style scoped>
+.goodslists {
+  display: flex;
+  /* 默认 为布包裹  wrap会根据宽度显示一行多少个 */
+  flex-wrap: wrap;
+  /* 均等分 */
+  justify-content: space-around;
+  padding: 2px;
+}
 </style>

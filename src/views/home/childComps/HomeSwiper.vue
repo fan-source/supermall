@@ -4,7 +4,8 @@
                  :key="index">
       <a :href="item.link">
         <img :src="item.image"
-             alt="">
+             alt=""
+             @load="imageLoad">
       </a>
     </swiper-item>
   </swiper>
@@ -24,9 +25,24 @@ export default {
       }
     }
   },
+  data () {
+    return {
+      isload: false
+    }
+  },
   components: {
     Swiper,
     SwiperItem
+  },
+  methods: {
+    imageLoad () {
+      // 只发送一次
+      if (!this.isload) {
+        this.$emit('swiperImageLoad')
+        this.isload = true
+      }
+
+    }
   }
 
 }
